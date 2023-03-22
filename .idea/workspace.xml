@@ -1,8 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;D:/Enib/IPS_Project&quot;
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba5288b5-a72e-4edc-88d8-05a3f7ae4abf" name="Changes" comment="Init commit STM + IHM">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.log4j.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.cdt.core/IPS_Project.1679492026146.pdom" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.cdt.core/IPS_Project.language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.cdt.core/IPS_Project.language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.cdt.make.ui/dialog_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.history/79/5012822fb6c8001d1a52bf6ebed7aba5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.history/8/b0430930b6c8001d1a52bf6ebed7aba5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.projects/IPS_Project/.indexes/af/history.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.projects/IPS_Project/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.projects/IPS_Project/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.projects/IPS_Project/.location" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.projects/IPS_Project/.location" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.projects/IPS_Project/.markers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.st.stm32cube.common.preferences.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/com.st.stm32cube.common.preferences.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-IPS_Project.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.core.prj-IPS_Project.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.managedbuilder.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.managedbuilder.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/IPS_Project/.cproject" beforeDir="false" afterPath="$PROJECT_DIR$/STM/IPS_Project/.cproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STM/IPS_Project/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/STM/IPS_Project/.settings/language.settings.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NN6s7A8r51NMYbKaRThsysEodR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Enib/IPS_Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba5288b5-a72e-4edc-88d8-05a3f7ae4abf" name="Changes" comment="" />
+      <created>1679492396926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679492396926</updated>
+      <workItem from="1679492398325" duration="907000" />
+    </task>
+    <task id="LOCAL-00001" summary="Init commit STM + IHM">
+      <created>1679492628148</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679492628148</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init commit STM + IHM" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init commit STM + IHM" />
+  </component>
 </project>
