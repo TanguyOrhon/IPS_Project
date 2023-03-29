@@ -16,39 +16,30 @@ baudrate = 115200
 serBuffer = ""
 
 ########################################################################
-#                        FUNCTIONS
+#                             MAIN
 ########################################################################
 
-def begin_ui():
+if __name__ == "__main__":
+
+    #try: 
+    #    ser = serial.Serial(port, baudrate, bytesize=8, parity='N', stopbits=1, timeout=None, rtscts=False, dsrdtr=False)
+    #    print("serial port " + ser.name + " opened")
+    #except Exception:
+    #    print("error open serial port: " + port)
+    #    exit()
+
     ui = Tk()
     ui.title("IPS - Déformation par jauge")
     ui.geometry("1000x500")
     ui.graph = Frame(ui, width=150, bg="#ababab")
     ui.graph.grid(row=0, column=0, rowspan=2, sticky="ns")
+
     ui.servomoteur = Frame(ui, width=150, bg="#ababab")
     ui.servomoteur.grid(row=0, column=2)
-    # ui.resizable(width=0, height=0)
-    return ui
 
-
-def begin_func(ui):
     begin = Func()
     begin.graph(ui)
     begin.weight(ui)
     begin.button(ui)
-    return begin
 
-
-def run():
-    ui = begin_ui()
-    begin = begin_func(ui);
-    ui.mainloop()  # MAIN LOOP
-
-########################################################################
-#                             MAIN
-########################################################################
-
-if __name__ == "__main__":
-    run()
-
-########################################################################
+    ui.mainloop()

@@ -14,11 +14,29 @@ class Func:
         self.strEstimated = StringVar(value="0")
         self.x = IntVar()
 
+    def animate(i):
+        k = 2*np.pi
+        w = 2*np.pi
+        dt = 0.001
+        xmin = 0
+        xmax = 100
+        nbx = 100
+        x = np.linspace(xmin, xmax, nbx)
+        line, = plt.plot([], [])
+        t = i * dt
+        y = np.cos(k*x -w*t ) + 300
+        line.set_data(x, y)
+        plt.xlim(xmin, xmax)
+        plt.ylim(298, 302)
+        return line,
+
     def graph(self, ui):
+    
+        figure = plt.figure()
+        
+        anim = animation.FuncAnimation(figure, self.animate, frames=10000, interval=1, blit=True, repeat=False)
+        
         matplotlib.use("TkAgg")
-        figure = Figure(figsize=(5, 5), dpi=100)
-        plot = figure.add_subplot(1, 1, 1)
-        plot.plot(0.5, 0.3)
         canvas = FigureCanvasTkAgg(figure, ui.graph)
         canvas.get_tk_widget().grid(row=0, column=0)
 
