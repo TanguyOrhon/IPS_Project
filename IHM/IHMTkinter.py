@@ -10,10 +10,9 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib
 from func import *
+from stm import *
 
-port = '/dev/ttyACM0'
-baudrate = 115200
-serBuffer = ""
+
 
 ########################################################################
 #                        FUNCTIONS
@@ -30,7 +29,6 @@ def begin_ui():
     # ui.resizable(width=0, height=0)
     return ui
 
-
 def begin_func(ui):
     begin = Func()
     begin.graph(ui)
@@ -38,10 +36,15 @@ def begin_func(ui):
     begin.button(ui)
     return begin
 
+def begin_stm(ui):
+    stm = Stm(ui)
+    stm.display()
+    return stm
 
 def run():
     ui = begin_ui()
     begin = begin_func(ui);
+    stm = begin_stm(ui)
     ui.mainloop()  # MAIN LOOP
 
 ########################################################################
