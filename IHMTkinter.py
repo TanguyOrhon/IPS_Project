@@ -1,68 +1,54 @@
-#! /usr/bin/python3
- 
+# ! /usr/bin/python3
+
 import serial
 import time
-from tkinter import *  
+from tkinter import *
 import numpy as np
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib
- 
-port='/dev/ttyACM0'
-baudrate=115200
+from func import *
+
+port = '/dev/ttyACM0'
+baudrate = 115200
 serBuffer = ""
 
- 
+########################################################################
+#                        FUNCTIONS
+########################################################################
+
+def begin_ui():
+    ui = Tk()
+    ui.title("IPS - Déformation par jauge")
+    ui.geometry("1000x500")
+    ui.graph = Frame(ui, width=150, bg="#ababab")
+    ui.graph.grid(row=0, column=0, rowspan=2, sticky="ns")
+    ui.servomoteur = Frame(ui, width=150, bg="#ababab")
+    ui.servomoteur.grid(row=0, column=2)
+    # ui.resizable(width=0, height=0)
+    return ui
+
+
+def begin_func(ui):
+    begin = Func()
+    begin.graph(ui)
+    begin.weight(ui)
+    begin.button(ui)
+    return begin
+
+
+def run():
+    ui = begin_ui()
+    begin = begin_func(ui);
+    ui.mainloop()  # MAIN LOOP
+
 ########################################################################
 #                             MAIN
 ########################################################################
- 
-if  __name__ == "__main__" :
- 
-    #try: 
-    #    ser = serial.Serial(port, baudrate, bytesize=8, parity='N', stopbits=1, timeout=None, rtscts=False, dsrdtr=False)
-    #    print("serial port " + ser.name + " opened")
-    #except Exception:
-    #    print("error open serial port: " + port)
-    #    exit()
- 
-    ui=Tk()
- 
-    ui.title("IPS - Déformation par jauge")
-    ui.geometry("400x400")
 
-    #GRAPH
-    
-    k = 2*np.pi
-    w = 2*np.pi
-    dt = 0.001
+if __name__ == "__main__":
+    run()
 
-    xmin = 0
-    xmax = 100
-    nbx = 100
-    x = np.linspace(xmin, xmax, nbx)
-
-    fig = plt.figure() # initialise la figure
-    line, = plt.plot([], []) 
-    plt.xlim(xmin, xmax)
-    plt.ylim(298, 302)
-
-    def animate(i): 
-        t = i * dt
-        y = np.cos(k*x -w*t ) + 300
-        line.set_data(x, y)
-        return line,
-
-    ani = animation.FuncAnimation(fig, animate, frames=10000,
-                                interval=1, blit=True, repeat=False)
-   
-    
-    matplotlib.use("TkAgg")
-    canvas = FigureCanvasTkAgg(fig, ui)
-    canvas.get_tk_widget().pack()
- 
-    #ui.after(1,receive)
-    ui.mainloop()       # MAIN LOOP
-
+########################################################################
