@@ -10,10 +10,9 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib
 from func import *
+from stm import *
 
-port = '/dev/ttyACM0'
-baudrate = 115200
-serBuffer = ""
+
 
 ########################################################################
 #                        FUNCTIONS
@@ -22,7 +21,7 @@ serBuffer = ""
 def begin_ui():
     ui = Tk()
     ui.title("IPS - Déformation par jauge")
-    ui.geometry("1000x500")
+    ui.geometry("1300x700")
     ui.graph = Frame(ui, width=150, bg="#ababab")
     ui.graph.grid(row=0, column=0, rowspan=2, sticky="ns")
     ui.servomoteur = Frame(ui, width=150, bg="#ababab")
@@ -30,18 +29,23 @@ def begin_ui():
     # ui.resizable(width=0, height=0)
     return ui
 
-
 def begin_func(ui):
     begin = Func()
     begin.graph(ui)
     begin.weight(ui)
     begin.button(ui)
+    #begin.animate(ui)
     return begin
 
+def begin_stm(ui):
+    stm = Stm(ui)
+    stm.display()
+    return stm
 
 def run():
     ui = begin_ui()
-    begin = begin_func(ui);
+    begin_func(ui)
+    stm = begin_stm(ui)
     ui.mainloop()  # MAIN LOOP
 
 ########################################################################

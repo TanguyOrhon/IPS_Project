@@ -5,50 +5,42 @@ import numpy as np
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+#import matplotlib.animation as animation
 import matplotlib
 import random
 
 
 class Func:
-    
     def __init__(self):
         self.strEstimated = StringVar(value="0")
         self.x = IntVar()
+        self.x_values = []
+        self.y_values = []
+        self.xlimadd = 100
+        self.xlim = self.xlimadd
         
-        #self.k = 2*np.pi
-        #self.w = 2*np.pi
-        self.dt = 0.001
-        
-        
-        self.xmin = 0
-        self.xmax = 100
-        self.nbx = 50
-        self.xanim = np.linspace(self.xmin, self.xmax, self.nbx)
-        
-        
-    def animate(self, i):
-        t = i * self.dt
-        #y = np.cos(self.k*self.xanim -self.w*t ) + 300
-        y = random.randint(298,302)
-        self.line.set_data(self.xanim, y)
-        return self.line,
+    def animate(self,canvas,ui,i=0):
+        #for i in range(100):
+        self.x_values.append(i)
+        self.y_values.append(random.randint(0,5)) #à modifier pour choper les valeurs en UART
+        if (i == self.xlim):
+            plt.xlim(self.xlim,self.xlim+self.xlimadd)
+            self.xlim = self.xlim+self.xlimadd
+        plt.plot(self.y_values, color='black')
+        canvas.draw()
+        ui.after(100, self.animate, canvas, ui, i+1)
 
     def graph(self, ui):
-
-        fig = plt.figure() # initialise la figure
-        self.line, = plt.plot([], [])
-        plt.xlim(self.xmin, self.xmax)
-        plt.ylim(298, 302)
         
-
-        self.ani = animation.FuncAnimation(fig, self.animate, frames=10000, interval=100, blit=True, repeat=False)
-   
+        fig=plt.figure()
+        plt.xlim(0,self.xlim)
+        plt.ylim(-1,6) 
         
         matplotlib.use("TkAgg")
         canvas = FigureCanvasTkAgg(fig, ui)
         canvas.get_tk_widget().grid(row=0, column=0)
-        # canvas.get_tk_widget().pack()
+        self.animate(canvas,ui)
+
 
     def weight(self, ui):
         # Label : estimation de poids
