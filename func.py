@@ -11,24 +11,27 @@ import random
 
 
 class Func:
-    def __init__(self):
+    def __init__(self,stm):
         self.strEstimated = StringVar(value="0")
         self.x = IntVar()
         self.x_values = []
         self.y_values = []
         self.xlimadd = 100
         self.xlim = self.xlimadd
+        self.stm = stm
+        self.yval = 0
         
     def animate(self,canvas,ui,i=0):
-        #for i in range(100):
         self.x_values.append(i)
-        self.y_values.append(random.randint(0,5)) #à modifier pour choper les valeurs en UART
+        if (self.stm.strReceived[0].get()):
+            self.yval = int(self.stm.strReceived[0].get())
+        self.y_values.append(self.yval)
         if (i == self.xlim):
             plt.xlim(self.xlim,self.xlim+self.xlimadd)
             self.xlim = self.xlim+self.xlimadd
         plt.plot(self.y_values, color='black')
         canvas.draw()
-        ui.after(100, self.animate, canvas, ui, i+1)
+        ui.after(50, self.animate, canvas, ui, i+1)
 
     def graph(self, ui):
         

@@ -11,12 +11,12 @@ from func import *
 
 class Stm:
     def __init__(self, ui):
-        self.port = 'COM7'
+        self.port = 'COM5'
         self.baudrate = 115200
         self.serBuffer = ""
         self.ser = 0
         self.ui = ui
-        self.strReceived = StringVar()
+        self.strReceived = [StringVar()]#StringVar()
         self.config()
 
     def config(self):
@@ -33,9 +33,6 @@ class Stm:
         while (self.ser.inWaiting() > 0):
             if (self.ser.inWaiting() > 0):
                 c = self.ser.read(1)
-                print("ser.read = ")
-                print(c)
-                print("\n")
                 if len(c) == 0:
                      break
 
@@ -53,8 +50,12 @@ class Stm:
                     reading.append(c)
             time.sleep(0.001)
             #self.strReceived.set(reading)
-            print(reading)
-            self.strReceived.set(12)
+            i=0
+            val = [] #=(int.from_bytes(reading[0],'big'))
+            while (i<len(reading)):
+                val[i] = (int.from_bytes(reading[i],'big'))
+                self.strReceived[i].set(val[i])
+                i+=1
             self.ser.flush()
         self.ui.after(1, self.receive)
 

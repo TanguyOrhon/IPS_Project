@@ -29,8 +29,8 @@ def begin_ui():
     # ui.resizable(width=0, height=0)
     return ui
 
-def begin_func(ui):
-    begin = Func()
+def begin_func(ui,stm):
+    begin = Func(stm)
     begin.graph(ui)
     begin.weight(ui)
     begin.button(ui)
@@ -44,8 +44,8 @@ def begin_stm(ui):
 
 def run():
     ui = begin_ui()
-    begin_func(ui)
     stm = begin_stm(ui)
+    begin_func(ui,stm)
     ui.mainloop()  # MAIN LOOP
 
 ########################################################################
