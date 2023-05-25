@@ -17,6 +17,9 @@ class Stm:
         self.ser = 0
         self.ui = ui
         self.strReceived = StringVar()
+        self.strReceived2 = StringVar()
+        self.test1 = 0
+        self.test2 = 0
         self.config()
 
     def config(self):
@@ -30,26 +33,30 @@ class Stm:
 
     def receive(self):
         reading = []
-        while (self.ser.inWaiting() > 0):
-            if (self.ser.inWaiting() > 0):
-                c = self.ser.read(1)
+        reading2 = []
+        i = 0
+        while self.ser.inWaiting() > 0:
+            if self.ser.inWaiting() > 0:
+                c = self.ser.read(1).decode()
                 if len(c) == 0:
                      break
 
-                    # get the buffer from outside of this function
-                global serBuffer
-
+                if c == 'b':
+                    i = 1
+                elif c == 'a':
+                    i = 2
+                elif i == 1 :
+                    self.reading(reading, c)
+                elif i == 2 :
+                    self.reading(reading2, c)
                 # check if character is a delimeter
-                if c == '\r':
-                    reading.append()  # don't want returns. chuck it
-                elif c == '\n':
-                    # serBuffer += "\n"  # add the newline to the buffer
-                    # log.insert('0.0', serBuffer)
-                    reading.append("")  # empty the buffer
-                else:
-                    reading.append(c)
+
             time.sleep(0.001)
+            #self.strReceived.set(reading)
             self.strReceived.set(reading)
+            self.test1 = Entry(self.ui, textvariable=self.strReceived, width=60)
+            self.strReceived2.set(reading2)
+            self.test2 = Entry(self.ui, textvariable=self.strReceived, width=60)
             self.ser.flush()
         self.ui.after(1, self.receive)
 
@@ -57,4 +64,16 @@ class Stm:
     def display(self):
         receivedEntry = Entry(self.ui, textvariable=self.strReceived,width=60 )
         receivedEntry.grid(row=4, column=5)
+        receivedEntry2 = Entry(self.ui, textvariable=self.strReceived2,width=60 )
+        receivedEntry2.grid(row=5, column=5)
         self.ui.after(1, self.receive)
+
+    def reading(self, r, c):
+        if c == '\r':
+            r.append()  # don't want returns. chuck it
+        elif c == '\n':
+            # serBuffer += "\n"  # add the newline to the buffer
+            # log.insert('0.0', serBuffer)
+            r.append("")  # empty the buffer
+        else:
+            r.append(c)

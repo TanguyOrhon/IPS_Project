@@ -5,22 +5,44 @@ import numpy as np
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+# import matplotlib.animation as animation
 import matplotlib
+import random
 
 
 class Func:
-    def __init__(self):
+    def __init__(self, stm):
         self.strEstimated = StringVar(value="0")
         self.x = IntVar()
+        self.x_values = []
+        self.y_values = []
+        self.xlimadd = 100
+        self.xlim = self.xlimadd
+        self.stm = stm
+        self.yval = 0
+
+    def animate(self, canvas, ui, i=0):
+        self.x_values.append(i)
+        if (self.stm.test1):
+            self.yval = float(self.stm.test1.get())
+        self.y_values.append(self.yval)
+        if (i == self.xlim):
+            plt.xlim(self.xlim, self.xlim + self.xlimadd)
+            self.xlim = self.xlim + self.xlimadd
+        plt.plot(self.y_values, color='black')
+        canvas.draw()
+        ui.after(500, self.animate, canvas, ui, i + 1)
 
     def graph(self, ui):
+
+        fig = plt.figure()
+        plt.xlim(0, self.xlim)
+        plt.ylim(-1, 300)
+
         matplotlib.use("TkAgg")
-        figure = Figure(figsize=(5, 5), dpi=100)
-        plot = figure.add_subplot(1, 1, 1)
-        plot.plot(0.5, 0.3)
-        canvas = FigureCanvasTkAgg(figure, ui.graph)
+        canvas = FigureCanvasTkAgg(fig, ui)
         canvas.get_tk_widget().grid(row=0, column=0)
+        self.animate(canvas, ui)
 
     def weight(self, ui):
         # Label : estimation de poids

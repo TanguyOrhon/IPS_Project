@@ -100,6 +100,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  int test_var = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,22 +113,31 @@ int main(void)
 	HAL_ADC_Start(&hadc1);
 	HAL_ADC_PollForEvent(&hadc1, ADC_OVR_EVENT, 10);
 	uint32_t ADCValue = HAL_ADC_GetValue(&hadc1);
+	float Voltage_Data=	ADCValue*(3.3/4095);
+
 	char str[25];
 	char str2[25];
-	float Voltage_Data=	ADCValue*(3.3/4095);
-	sprintf(str, "Voltage : %.2f V \r\n", Voltage_Data);
-	snprintf(str2,25, "Valeur : %lu\r\n", ADCValue);
+	sprintf(str, "a%.2f", Voltage_Data);
+	snprintf(str2,25, "b%lu", ADCValue);
+
 	HAL_UART_Transmit(&huart2,(uint8_t*)str, strlen(str), 5000);
 	HAL_UART_Transmit(&huart2,(uint8_t*)str2, strlen(str2), 5000);
+/*
+	char values[1];
+	values[0] = str;
+	//values[1] = str2;
+	//values[2] = "hello";
+	HAL_UART_Transmit(&huart2, (uint8_t*)values, sizeof(values), 5000);*/
+
 	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
+
+	int x = (int)(1500 + 450*(Voltage_Data-2.2));
+	if(abs(x - test_var) > 75)
+	{
+		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_2, x);
+		test_var = x;
+	}
 	HAL_Delay(3000);
-	  int x = 1000 + 1000*Voltage_Data/3.3;
-	      /*for(x=1000; x<2000; x=x+1)
-	      {
-	        __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_2, x);
-	        HAL_Delay(3);
-	      }*/
-	  __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_2, x);
 
   }
   /* USER CODE END 3 */

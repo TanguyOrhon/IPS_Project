@@ -21,7 +21,7 @@ from stm import *
 def begin_ui():
     ui = Tk()
     ui.title("IPS - Déformation par jauge")
-    ui.geometry("1000x500")
+    ui.geometry("1300x700")
     ui.graph = Frame(ui, width=150, bg="#ababab")
     ui.graph.grid(row=0, column=0, rowspan=2, sticky="ns")
     ui.servomoteur = Frame(ui, width=150, bg="#ababab")
@@ -29,11 +29,12 @@ def begin_ui():
     # ui.resizable(width=0, height=0)
     return ui
 
-def begin_func(ui):
-    begin = Func()
+def begin_func(ui,stm):
+    begin = Func(stm)
     begin.graph(ui)
     begin.weight(ui)
     begin.button(ui)
+    #begin.animate(ui)
     return begin
 
 def begin_stm(ui):
@@ -43,8 +44,8 @@ def begin_stm(ui):
 
 def run():
     ui = begin_ui()
-    begin = begin_func(ui);
     stm = begin_stm(ui)
+    begin_func(ui,stm)
     ui.mainloop()  # MAIN LOOP
 
 ########################################################################
