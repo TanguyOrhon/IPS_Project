@@ -16,6 +16,7 @@ class Stm:
         self.serBuffer = ""
         self.ser = 0
         self.ui = ui
+        self.ADC = StringVar()
         self.VoltageData = 0
         self.ADC_Value = 0
         self.config()
@@ -32,12 +33,12 @@ class Stm:
     def receive(self):
         self.VoltageData = self.ser.readline().decode().strip()
         self.ADC_Value = self.ser.readline().decode().strip()
-        print("test")
-        self.ui.after(1000, self.receive)
+        self.ADC.set(self.ADC_Value)
+        self.ui.after(10, self.receive)
 
     def display(self):
-        receivedEntry = Entry(self.ui, textvariable=self.VoltageData,width=60 )
+        receivedEntry = Entry(self.ui, textvariable=self.ADC,width=60 )
         receivedEntry.grid(row=4, column=5)
-        receivedEntry2 = Entry(self.ui, textvariable=self.ADC_Value,width=60 )
-        receivedEntry2.grid(row=5, column=5)
+        #receivedEntry2 = Entry(self.ui, textvariable=self.ADC_Value,width=60 )
+        #receivedEntry2.grid(row=5, column=5)
         self.receive()

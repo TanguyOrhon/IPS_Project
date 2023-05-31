@@ -137,7 +137,7 @@ int main(void)
 		__HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_2, x);
 		test_var = x;
 	}
-	HAL_Delay(3000);
+	HAL_Delay(10);
 
   }
   /* USER CODE END 3 */
