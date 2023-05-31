@@ -23,21 +23,21 @@ class Func:
 
     def animate(self, canvas, ui, i=0):
         self.x_values.append(i)
-        if (self.stm.test1):
-            self.yval = float(self.stm.test1.get())
+        if (self.stm.ADC_Value):
+            self.yval=float(300)
         self.y_values.append(self.yval)
         if (i == self.xlim):
             plt.xlim(self.xlim, self.xlim + self.xlimadd)
             self.xlim = self.xlim + self.xlimadd
         plt.plot(self.y_values, color='black')
         canvas.draw()
-        ui.after(500, self.animate, canvas, ui, i + 1)
+        ui.after(1, self.animate, canvas, ui, i + 1)
 
     def graph(self, ui):
 
         fig = plt.figure()
         plt.xlim(0, self.xlim)
-        plt.ylim(-1, 300)
+        plt.ylim(-1, 1500)
 
         matplotlib.use("TkAgg")
         canvas = FigureCanvasTkAgg(fig, ui)

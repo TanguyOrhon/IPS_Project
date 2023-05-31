@@ -117,8 +117,8 @@ int main(void)
 
 	char str[25];
 	char str2[25];
-	sprintf(str, "a%.2f", Voltage_Data);
-	snprintf(str2,25, "b%lu", ADCValue);
+	sprintf(str, "%.2f\r\n", Voltage_Data);
+	snprintf(str2,25, "%lu\r\n", ADCValue);
 
 	HAL_UART_Transmit(&huart2,(uint8_t*)str, strlen(str), 5000);
 	HAL_UART_Transmit(&huart2,(uint8_t*)str2, strlen(str2), 5000);

@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5288b5-a72e-4edc-88d8-05a3f7ae4abf" name="Changes" comment="Add STM Uart">
+    <list default="true" id="ba5288b5-a72e-4edc-88d8-05a3f7ae4abf" name="Changes" comment="Update STM receiver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IHM/IHMTkinter.py" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/IHMTkinter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IHM/func.py" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/func.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IHM/stm.py" beforeDir="false" afterPath="$PROJECT_DIR$/IHM/stm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.cdt.core/IPS_Project.1679493407838.pdom" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.cdt.core/IPS_Project.1679493407838.pdom" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STM/.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/STM/.metadata/version.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/STM/IPS_Project/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/STM/IPS_Project/Core/Src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STM/IPS_Project/IPS_Project.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/STM/IPS_Project/IPS_Project.ioc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +83,9 @@
       <workItem from="1683817397904" duration="124000" />
       <workItem from="1684324349601" duration="1424000" />
       <workItem from="1684931812147" duration="4802000" />
-      <workItem from="1685025208029" duration="2077000" />
+      <workItem from="1685025208029" duration="2122000" />
+      <workItem from="1685028554195" duration="1838000" />
+      <workItem from="1685536392021" duration="6635000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit STM + IHM">
       <created>1679492628148</created>
@@ -109,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680704685239</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update STM receiver">
+      <created>1685027343245</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685027343245</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,10 +124,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init commit STM + IHM" />
     <MESSAGE value="Add STM Uart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add STM Uart" />
+    <MESSAGE value="Update STM receiver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update STM receiver" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/IPS_Project$IHMTkinter.coverage" NAME="IHMTkinter Coverage Results" MODIFIED="1685027281442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IHM" />
+    <SUITE FILE_PATH="coverage/IPS_Project$IHMTkinter.coverage" NAME="IHMTkinter Coverage Results" MODIFIED="1685543036999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IHM" />
     <SUITE FILE_PATH="coverage/IPS_Project$stm.coverage" NAME="stm Coverage Results" MODIFIED="1679496585450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/IHM" />
   </component>
 </project>

@@ -11,15 +11,13 @@ from func import *
 
 class Stm:
     def __init__(self, ui):
-        self.port = 'COM5'
+        self.port = 'COM7'
         self.baudrate = 115200
         self.serBuffer = ""
         self.ser = 0
         self.ui = ui
-        self.strReceived = StringVar()
-        self.strReceived2 = StringVar()
-        self.test1 = 0
-        self.test2 = 0
+        self.VoltageData = 0
+        self.ADC_Value = 0
         self.config()
 
     def config(self):
@@ -32,48 +30,14 @@ class Stm:
             exit()
 
     def receive(self):
-        reading = []
-        reading2 = []
-        i = 0
-        while self.ser.inWaiting() > 0:
-            if self.ser.inWaiting() > 0:
-                c = self.ser.read(1).decode()
-                if len(c) == 0:
-                     break
-
-                if c == 'b':
-                    i = 1
-                elif c == 'a':
-                    i = 2
-                elif i == 1 :
-                    self.reading(reading, c)
-                elif i == 2 :
-                    self.reading(reading2, c)
-                # check if character is a delimeter
-
-            time.sleep(0.001)
-            #self.strReceived.set(reading)
-            self.strReceived.set(reading)
-            self.test1 = Entry(self.ui, textvariable=self.strReceived, width=60)
-            self.strReceived2.set(reading2)
-            self.test2 = Entry(self.ui, textvariable=self.strReceived, width=60)
-            self.ser.flush()
-        self.ui.after(1, self.receive)
-
+        self.VoltageData = self.ser.readline().decode().strip()
+        self.ADC_Value = self.ser.readline().decode().strip()
+        print("test")
+        self.ui.after(1000, self.receive)
 
     def display(self):
-        receivedEntry = Entry(self.ui, textvariable=self.strReceived,width=60 )
+        receivedEntry = Entry(self.ui, textvariable=self.VoltageData,width=60 )
         receivedEntry.grid(row=4, column=5)
-        receivedEntry2 = Entry(self.ui, textvariable=self.strReceived2,width=60 )
+        receivedEntry2 = Entry(self.ui, textvariable=self.ADC_Value,width=60 )
         receivedEntry2.grid(row=5, column=5)
-        self.ui.after(1, self.receive)
-
-    def reading(self, r, c):
-        if c == '\r':
-            r.append()  # don't want returns. chuck it
-        elif c == '\n':
-            # serBuffer += "\n"  # add the newline to the buffer
-            # log.insert('0.0', serBuffer)
-            r.append("")  # empty the buffer
-        else:
-            r.append(c)
+        self.receive()
