@@ -23,14 +23,13 @@ def begin_ui():
     ui.graph.grid(row=0, column=0, rowspan=2, sticky="ns")
     ui.servomoteur = LabelFrame(ui, width=150, bg="#ababab")
     ui.servomoteur.grid(row=0, column=2)
-    # ui.resizable(width=0, height=0)
     return ui
 
 def begin_func(ui,stm):
-    begin = Func(stm, ui)
+    begin = Func(ui, stm)
     begin.graph(ui)
-    begin.weight(ui)
-    begin.degre(ui)
+    begin.weight()
+    begin.degre()
     begin.button(ui)
     #begin.animate(ui)
     return begin
